@@ -15,7 +15,7 @@ const app = express();
 // Enable CORS
 app.use(
   cors({
-    origin: "https://assessment78.vercel.app", // Your frontend's origin
+    origin: ["https://assessment78.vercel.app", "http://localhost:3000"], // Your frontend's origin
     credentials: true, // Enable cookies to be included in CORS requests
   })
 );
