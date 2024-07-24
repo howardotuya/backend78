@@ -18,6 +18,8 @@ const authUser = expressAsyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      businessLicense: user?.businessLicense,
+      taxId: user?.taxId,
     });
   } else {
     res.status(401);
@@ -51,6 +53,8 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      businessLicense: user?.businessLicense,
+      taxId: user?.taxId,
     });
   } else {
     res.status(400);
@@ -81,6 +85,8 @@ const getUserProfile = expressAsyncHandler(async (req, res) => {
       id: user._id,
       name: user.name,
       email: user.email,
+      businessLicense: user?.businessLicense,
+      taxId: user?.taxId,
     });
   } else {
     res.status(404);
@@ -97,6 +103,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
+    user.businessLicense = req?.body?.businessLicense || user?.businessLicense;
+    user.taxId = req?.body?.taxId || user?.taxId;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -108,6 +116,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      businessLicense: updatedUser?.businessLicense,
+      taxId: updatedUser?.taxId,
     });
   } else {
     res.status(404);

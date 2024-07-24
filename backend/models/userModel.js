@@ -14,6 +14,14 @@ const userSchema = mongoose.Schema(
       unique: true,
       trim: true,
     },
+    businessLicense: {
+      required: false,
+      type: String,
+    },
+    taxId: {
+      required: false,
+      type: String,
+    },
     password: {
       required: true,
       type: String,
